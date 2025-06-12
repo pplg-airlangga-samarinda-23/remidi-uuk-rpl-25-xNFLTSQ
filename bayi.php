@@ -30,10 +30,20 @@ $babies = $koneksi->execute_query($sql)->fetch_assoc(MYSQLI_ASSOC);
             <th>Aksi</th>
         </thead>
         <tbody>
-            <?php $no=0; foreach ($babies as $baby) ; ?>
+            <?php $no=0; foreach ($babies as $baby) : ?>
             <tr>
-                
+                <td><?=++$no?></td>
+                <td><?=$baby['nama']?></td>
+                <td><?=$baby['nama_ibu']?></td>
+                <td><?=$baby['nama_ayah']?></td>
+                <td><?=$baby['tanggal_lahir']?></td>
+                <td>
+                    <a href="bayi-detil.php?id=<?=$baby['id_bayi']?>">Detil</a>"
+                    <a href="bayi-edit.php?id=<?=$baby['id_bayi']?>">Edit</a>"
+                    <a href="bayi-hapus.php?id=<?=$baby['id_bayi']?>">Hapus</a>"
+                </td>
             </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </body>
